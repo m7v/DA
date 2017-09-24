@@ -1,31 +1,30 @@
 package main
 
 import (
-	"strconv"
-	"github.com/kataras/iris"
 	"encoding/json"
+	"github.com/kataras/iris"
 	"io/ioutil"
 	"math/rand"
+	"strconv"
 	"time"
 )
 
-
 type SergejAnswers struct {
-    Id int `json:"id"`
-    Text string `json:"text"`
+	Id   int    `json:"id"`
+	Text string `json:"text"`
 }
 
 type Answers struct {
-    Answers []SergejAnswers
+	Answers []SergejAnswers
 }
 
 type HomePage struct {
-	Bg string
+	Bg     string
 	Answer string
 }
 
 func main() {
-    app := iris.New()
+	app := iris.New()
 
 	app.Favicon("./static/favicon.ico")
 	app.StaticWeb("/static", "./static")
@@ -63,5 +62,5 @@ func check(e error) {
 
 func random(min int, max int) int {
 	rand.Seed(time.Now().Unix())
-	return rand.Intn(max - min) + min
+	return rand.Intn(max-min) + min
 }

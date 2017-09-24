@@ -1,0 +1,14 @@
+{
+  "name": "Sergei Answers",
+  "description": "Most popular answer of Project Manager",
+  "keywords": [
+    "just for fun",
+    "for portfolio",
+    "sample",
+    "example"
+  ],
+  "image": "heroku/go:1.9",
+  "mount_dir": "src/github.com/m7v/DA",
+  "website": "http://github.com/m7v/DA",
+  "repository": "http://github.com/m7v/DA"
+}
