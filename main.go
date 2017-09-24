@@ -7,6 +7,8 @@ import (
 	"math/rand"
 	"strconv"
 	"time"
+	"os"
+	"log"
 )
 
 type SergejAnswers struct {
@@ -24,6 +26,12 @@ type HomePage struct {
 }
 
 func main() {
+	port := os.Getenv("PORT")
+
+	if port == "" {
+		log.Fatal("$PORT must be set")
+	}
+
 	app := iris.New()
 
 	app.Favicon("./static/favicon.ico")
@@ -33,7 +41,7 @@ func main() {
 
 	app.Get("/", home)
 
-	app.Run(iris.Addr(":8080"), iris.WithCharset("UTF-8"))
+	app.Run(iris.Addr(":" + port), iris.WithCharset("UTF-8"))
 }
 
 func home(ctx iris.Context) {
